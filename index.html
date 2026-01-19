@@ -7,16 +7,20 @@
 
 <style>
 :root{
- --bg:#f4f7f6;
+ --bg:#ecf8f3;
  --card:#ffffff;
- --primary:#1f7f5c;
- --text:#1b1b1b;
+ --primary:#1faa59;
+ --primary-dark:#0f6b3f;
+ --soft:#e6f6ee;
+ --text:#114433;
 }
+
 *{box-sizing:border-box;font-family:Segoe UI,Arial}
-body{margin:0;background:var(--bg);color:var(--text)}
+body{margin:0;background:linear-gradient(#ecf8f3,#f9fffc);color:var(--text)}
+
 
 header{
-background:linear-gradient(135deg,#222,#555);
+background:linear-gradient(135deg,#1faa59,#0f6b3f);
 color:white;
 padding:40px 20px;
 border-radius:0 0 28px 28px;
@@ -31,9 +35,10 @@ background:var(--card);
 border-radius:18px;
 padding:16px;
 margin-bottom:14px;
-box-shadow:0 6px 16px rgba(0,0,0,.08);
+box-shadow:0 6px 16px rgba(31,170,89,.18);
 animation:fade .4s;
 }
+
 
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 
@@ -51,6 +56,11 @@ display:block;
 }
 .btn:hover{transform:scale(1.05)}
 
+ .btn:hover{
+transform:scale(1.05);
+background:var(--primary-dark);
+}
+
 .bottom-nav{
 position:fixed;
 bottom:0;left:0;right:0;
@@ -62,6 +72,7 @@ box-shadow:0 -4px 12px rgba(0,0,0,.1);
 }
 
 .bottom-nav div{
+ border-top:2px solid #e0f2ea;
 text-align:center;
 font-size:12px;
 cursor:pointer;
@@ -104,7 +115,7 @@ to{opacity:1;transform:none}
 <body>
 
 <header>
-<img src="logo-linmas.png">
+<img src="logo-linmas.png" style="background:white;padding:8px;border-radius:16px">
 <h2>MAS JAGATRA</h2>
 <p>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</p>
 </header>
@@ -129,29 +140,114 @@ to{opacity:1;transform:none}
 
 <!-- INOVASI -->
 <section id="inovasi">
+
 <div class="card">
 <h3>🚀 Inovasi MAS JAGATRA</h3>
 <p><b>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</b></p>
 </div>
 
 <div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">A. Deskripsi <span>›</span></div>
+<div class="acc-title" onclick="toggleAcc(this)">
+A. Deskripsi & Latar Belakang <span>›</span>
+</div>
 <div class="acc-content">
-<p>Satlinmas tidak hanya menjaga keamanan, tetapi juga membantu pelayanan publik, pemberdayaan sosial, pendataan, dan pendampingan adminduk.</p>
+<p>
+Satlinmas Kelurahan Serengan selama ini dikenal sebagai garda terdepan dalam menjaga keamanan dan ketertiban masyarakat.
+Namun dinamika kebutuhan warga semakin berkembang tidak hanya pada aspek keamanan, tetapi juga pelayanan publik,
+pemberdayaan sosial, pendataan kewilayahan, serta pendampingan administrasi kependudukan.
+</p>
+
+<ul>
+<li>Penguatan keamanan lingkungan dan kegiatan sosial.</li>
+<li>Percepatan pelayanan publik kelurahan.</li>
+<li>Dukungan pemberdayaan masyarakat.</li>
+<li>Pendampingan dokumen administrasi kependudukan.</li>
+<li>Pendataan rumah tangga kewilayahan.</li>
+</ul>
 </div>
 </div>
 
 <div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">B. Tujuan <span>›</span></div>
+<div class="acc-title" onclick="toggleAcc(this)">
+B. Proses Penjaringan Ide <span>›</span>
+</div>
+<div class="acc-content">
+<ul>
+<li>Diskusi internal Satlinmas.</li>
+<li>Masukan perangkat kelurahan.</li>
+<li>Aspirasi masyarakat melalui RW/RT.</li>
+<li>Arahan Pemerintah Kota Surakarta.</li>
+</ul>
+</div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+C. Proses Penetapan Ide <span>›</span>
+</div>
+<div class="acc-content">
+<ul>
+<li>Identifikasi alternatif peran Satlinmas.</li>
+<li>Penyaringan berdasarkan urgensi dan manfaat.</li>
+<li>Kesepakatan bersama penetapan MAS JAGATRA.</li>
+</ul>
+</div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+D. Tujuan Inovasi <span>›</span>
+</div>
 <div class="acc-content">
 <ul>
 <li>Mengoptimalkan peran Satlinmas.</li>
 <li>Mempercepat pelayanan publik.</li>
-<li>Mendukung program Adminduk.</li>
+<li>Mendukung percepatan Adminduk.</li>
+<li>Meningkatkan kualitas sosial masyarakat.</li>
+<li>Meningkatkan literasi teknologi Satlinmas.</li>
 </ul>
 </div>
 </div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+E. Manfaat Inovasi <span>›</span>
+</div>
+<div class="acc-content">
+<b>Bagi Masyarakat</b>
+<ul>
+<li>Pelayanan lebih cepat dan humanis.</li>
+<li>Pendampingan dokumen Adminduk.</li>
+<li>Dukungan kegiatan sosial.</li>
+<li>Pendataan rumah tangga lebih akurat.</li>
+</ul>
+
+<b>Bagi Kelurahan</b>
+<ul>
+<li>Pelayanan lebih responsif.</li>
+<li>Database kewilayahan valid.</li>
+<li>Mitra andalan pemberdayaan.</li>
+</ul>
+</div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+F. Dampak Terukur <span>›</span>
+</div>
+<div class="acc-content">
+<ul>
+<li>Penurunan gangguan kamtibmas.</li>
+<li>90% dokumen Adminduk tersampaikan ke rumah.</li>
+<li>70% rumah tangga terdata tahun pertama.</li>
+<li>Peningkatan partisipasi kegiatan sosial.</li>
+<li>Database kelurahan berbasis digital.</li>
+</ul>
+</div>
+</div>
+
 </section>
+
 
 <!-- STRUKTUR -->
 <section id="struktur">

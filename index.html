@@ -17,41 +17,101 @@
 
 *{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
 body{margin:0;background:var(--bg);color:#033}
+
 header{
  background:linear-gradient(135deg,#1faa59,#0f3d2e);
- color:white;padding:20px;text-align:center;
- border-radius:0 0 25px 25px;
+ color:white;
+ padding:30px 20px 40px;
+ text-align:center;
+ border-radius:0 0 30px 30px;
+ position:relative;
+ overflow:hidden;
 }
-header img{width:70px}
+
+header::after{
+ content:'';
+ position:absolute;
+ width:220px;height:220px;
+ background:rgba(255,255,255,.08);
+ border-radius:50%;
+ top:-60px;right:-60px;
+}
+
+header img{
+ width:78px;
+ background:white;
+ padding:8px;
+ border-radius:18px;
+ box-shadow:0 6px 18px rgba(0,0,0,.25);
+ margin-bottom:8px;
+}
+
+.hero-title{
+ font-size:24px;
+ letter-spacing:1px;
+ margin:6px 0;
+}
+
+.hero-sub{
+ font-size:13px;
+ opacity:.9;
+}
+
 section{padding:20px;display:none}
 section.active{display:block}
 
 .card{
- background:white;border-radius:16px;
- padding:16px;margin:12px 0;
+ background:white;
+ border-radius:18px;
+ padding:16px;
+ margin:12px 0;
  box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
 .btn{
- display:block;text-align:center;
- padding:14px;margin:10px 0;
- background:var(--green);color:white;
- border-radius:14px;text-decoration:none;
+ display:block;
+ text-align:center;
+ padding:14px;
+ margin:6px 0;
+ background:var(--green);
+ color:white;
+ border-radius:14px;
+ text-decoration:none;
  font-weight:600;
 }
 
 .grid{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+ grid-template-columns:repeat(2,1fr);
  gap:12px;
 }
 
-.member img{
- width:100%;border-radius:14px;
+.quick{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
+ margin-top:-30px;
+ padding:0 16px;
+}
+
+.quick a{
+ background:white;
+ padding:14px;
+ border-radius:18px;
+ text-decoration:none;
+ color:#033;
+ font-weight:600;
+ box-shadow:0 6px 18px rgba(0,0,0,.1);
+ transition:.25s;
+}
+
+.quick a:hover{
+ transform:translateY(-4px) scale(1.02);
 }
 
 .bottom-nav{
- position:fixed;bottom:0;left:0;right:0;
+ position:fixed;
+ bottom:0;left:0;right:0;
  background:white;
  display:flex;
  justify-content:space-around;
@@ -60,11 +120,22 @@ section.active{display:block}
 }
 
 .bottom-nav button{
- background:none;border:none;
- font-size:12px;color:#666;
+ background:none;
+ border:none;
+ font-size:12px;
+ color:#666;
 }
 
 .bottom-nav button.active{color:var(--green)}
+
+.fade-in{
+ animation:fade .4s;
+}
+
+@keyframes fade{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:none}
+}
 </style>
 </head>
 
@@ -72,11 +143,21 @@ section.active{display:block}
 
 <header>
 <img src="img/logo-back.png">
-<h2>MAS JAGATRA</h2>
-<p>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</p>
+<div class="hero-title">MAS JAGATRA</div>
+<div class="hero-sub">
+Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat
+</div>
 </header>
 
-<section id="home" class="active">
+<div class="quick">
+<a href="https://tally.so/r/44J9Eb">✅ Absensi Datang</a>
+<a href="https://tally.so/r/kdeJp6">🏁 Absensi Pulang</a>
+<a href="https://tally.so/r/81a6WA">📝 Laporan Kinerja</a>
+<a href="#inovasi" onclick="nav('inovasi',document.querySelectorAll('.bottom-nav button')[1])">🚀 Inovasi</a>
+</div>
+
+<section id="home" class="active fade-in">
+
 <div class="card">
 <h3>🌱 Tentang MAS JAGATRA</h3>
 <p>
@@ -87,9 +168,16 @@ kependudukan dan pencatatan sipil masyarakat.
 </p>
 </div>
 
-<a class="btn" href="https://tally.so/r/44J9Eb">✅ Absensi Datang</a>
-<a class="btn" href="https://tally.so/r/kdeJp6">🏁 Absensi Pulang</a>
-<a class="btn" href="https://tally.so/r/81a6WA">📝 Laporan Kinerja</a>
+<div class="card">
+<h3>⚡ Layanan Cepat</h3>
+<div class="grid">
+<a class="btn" href="https://tally.so/r/44J9Eb">Datang</a>
+<a class="btn" href="https://tally.so/r/kdeJp6">Pulang</a>
+<a class="btn" href="https://tally.so/r/81a6WA">Laporan</a>
+<a class="btn" href="#struktur" onclick="nav('struktur',document.querySelectorAll('.bottom-nav button')[2])">Struktur</a>
+</div>
+</div>
+
 </section>
 
 <section id="inovasi">
@@ -137,8 +225,8 @@ kependudukan dan pencatatan sipil masyarakat.
 
 <script>
 function nav(id,el){
- document.querySelectorAll("section").forEach(s=>s.classList.remove("active"))
- document.getElementById(id).classList.add("active")
+ document.querySelectorAll("section").forEach(s=>s.classList.remove("active","fade-in"))
+ document.getElementById(id).classList.add("active","fade-in")
  document.querySelectorAll(".bottom-nav button").forEach(b=>b.classList.remove("active"))
  el.classList.add("active")
 }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAS JAGATRA - Satlinmas Serengan</title>
+<title>MAS JAGATRA</title>
 
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1faa59">
@@ -16,21 +16,30 @@
 }
 
 *{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{margin:0;background:var(--bg);color:#033}
+body{margin:0;background:var(--bg);color:#033;padding-bottom:90px}
+
 header{
  background:linear-gradient(135deg,#1faa59,#0f3d2e);
- color:white;padding:20px;text-align:center;
- border-radius:0 0 25px 25px;
+ color:white;padding:18px;text-align:center;
+ border-radius:0 0 28px 28px;
+ animation:fade .6s;
 }
-header img{width:70px}
-section{padding:20px;display:none}
+
+@keyframes fade{
+ from{opacity:0;transform:translateY(12px)}
+ to{opacity:1;transform:none}
+}
+
+section{padding:18px;display:none;animation:fade .4s}
 section.active{display:block}
 
 .card{
- background:white;border-radius:16px;
+ background:white;border-radius:18px;
  padding:16px;margin:12px 0;
- box-shadow:0 6px 16px rgba(0,0,0,.08);
+ box-shadow:0 6px 18px rgba(0,0,0,.08);
+ transition:.25s;
 }
+.card:active{transform:scale(.97)}
 
 .btn{
  display:block;text-align:center;
@@ -42,12 +51,32 @@ section.active{display:block}
 
 .grid{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+ grid-template-columns:repeat(2,1fr);
  gap:12px;
 }
 
+.member{
+ text-align:center;
+ cursor:pointer;
+}
 .member img{
- width:100%;border-radius:14px;
+ width:100%;
+ border-radius:14px;
+ box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
+.member p{margin:6px 0 0;font-size:13px}
+
+.stats{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
+}
+
+.stat{
+ background:linear-gradient(135deg,#1faa59,#0f3d2e);
+ color:white;padding:16px;border-radius:16px;
+ text-align:center;
+ box-shadow:0 6px 14px rgba(0,0,0,.2);
 }
 
 .bottom-nav{
@@ -64,27 +93,40 @@ section.active{display:block}
  font-size:12px;color:#666;
 }
 
-.bottom-nav button.active{color:var(--green)}
+.bottom-nav button.active{color:var(--green);font-weight:700}
+
+/* MODAL */
+.modal{
+ position:fixed;inset:0;
+ background:rgba(0,0,0,.5);
+ display:none;align-items:center;justify-content:center;
+}
+.modal.active{display:flex}
+.modal-box{
+ background:white;padding:20px;border-radius:18px;
+ width:85%;max-width:300px;text-align:center;
+ animation:fade .3s;
+}
+.modal-box img{width:100px;border-radius:14px}
 </style>
 </head>
 
 <body>
 
 <header>
-<img src="img/logo-back.png">
 <h2>MAS JAGATRA</h2>
-<p>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</p>
+<p>Satlinmas Kelurahan Serengan</p>
 </header>
 
 <section id="home" class="active">
 <div class="card">
-<h3>🌱 Tentang MAS JAGATRA</h3>
-<p>
-MAS JAGATRA adalah inovasi Kelurahan Serengan yang
-menguatkan peran Satlinmas sebagai garda terdepan keamanan,
-ketertiban, solidaritas sosial, serta agen penertiban dokumen
-kependudukan dan pencatatan sipil masyarakat.
-</p>
+<h3>📊 Dashboard</h3>
+<div class="stats">
+<div class="stat"><h2>15</h2><p>Anggota</p></div>
+<div class="stat"><h2>32</h2><p>Kegiatan</p></div>
+<div class="stat"><h2>18</h2><p>Laporan</p></div>
+<div class="stat"><h2>12</h2><p>Hadir</p></div>
+</div>
 </div>
 
 <a class="btn" href="https://tally.so/r/44J9Eb">✅ Absensi Datang</a>
@@ -92,47 +134,39 @@ kependudukan dan pencatatan sipil masyarakat.
 <a class="btn" href="https://tally.so/r/81a6WA">📝 Laporan Kinerja</a>
 </section>
 
-<section id="inovasi">
-<div class="card">
-<h3>🚀 Inovasi MAS JAGATRA</h3>
-<ul>
-<li>Pelayanan berbasis partisipasi Satlinmas</li>
-<li>Pendampingan administrasi kependudukan</li>
-<li>Respon cepat keamanan lingkungan</li>
-<li>Solidaritas sosial masyarakat</li>
-<li>Digitalisasi absensi & laporan</li>
-</ul>
-</div>
-</section>
-
 <section id="struktur">
 <div class="card">
-<h3>👮 Susunan Satlinmas</h3>
-<img src="img/struktur.png" style="width:100%;border-radius:16px">
+<h3>👮 Profil Anggota</h3>
+<div class="grid">
+<div class="member" onclick="show('Eko Haryanto','Danton','img/eko.jpg')">
+<img src="img/eko.jpg"><p>Eko Haryanto</p>
 </div>
-</section>
-
-<section id="absen">
-<div class="card">
-<h3>📍 Absensi</h3>
-<a class="btn" href="https://tally.so/r/44J9Eb">Datang</a>
-<a class="btn" href="https://tally.so/r/kdeJp6">Pulang</a>
+<div class="member" onclick="show('Tukiran','Wadanton','img/tukiran.jpg')">
+<img src="img/tukiran.jpg"><p>Tukiran</p>
+</div>
+</div>
 </div>
 </section>
 
 <section id="laporan">
 <div class="card">
-<h3>📊 Laporan Aktivitas</h3>
+<h3>📊 Laporan</h3>
 <a class="btn" href="https://tally.so/r/81a6WA">Isi Laporan</a>
 </div>
 </section>
 
 <div class="bottom-nav">
 <button class="active" onclick="nav('home',this)">🏠<br>Home</button>
-<button onclick="nav('inovasi',this)">🚀<br>Inovasi</button>
-<button onclick="nav('struktur',this)">👮<br>Struktur</button>
-<button onclick="nav('absen',this)">📍<br>Absen</button>
+<button onclick="nav('struktur',this)">👮<br>Profil</button>
 <button onclick="nav('laporan',this)">📊<br>Laporan</button>
+</div>
+
+<div class="modal" id="modal" onclick="hide()">
+<div class="modal-box">
+<img id="mImg">
+<h3 id="mNama"></h3>
+<p id="mJabatan"></p>
+</div>
 </div>
 
 <script>
@@ -143,9 +177,13 @@ function nav(id,el){
  el.classList.add("active")
 }
 
-if('serviceWorker' in navigator){
- navigator.serviceWorker.register('sw.js')
+function show(n,j,i){
+ modal.classList.add("active")
+ mNama.innerText=n
+ mJabatan.innerText=j
+ mImg.src=i
 }
+function hide(){modal.classList.remove("active")}
 </script>
 
 </body>

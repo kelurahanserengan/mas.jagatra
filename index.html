@@ -16,7 +16,7 @@
 body{margin:0;background:var(--bg);color:var(--text)}
 
 header{
-background:linear-gradient(135deg,#1f7f5c,#0e4f39);
+background:linear-gradient(135deg,#222,#555);
 color:white;
 padding:40px 20px;
 border-radius:0 0 28px 28px;
@@ -46,6 +46,8 @@ text-align:center;
 font-weight:600;
 cursor:pointer;
 transition:.2s;
+text-decoration:none;
+display:block;
 }
 .btn:hover{transform:scale(1.05)}
 
@@ -74,6 +76,7 @@ background:rgba(0,0,0,.5);
 display:none;
 align-items:center;
 justify-content:center;
+z-index:10;
 }
 .modal-content{
 background:white;
@@ -85,6 +88,11 @@ overflow:auto;
 }
 
 iframe{border:0;width:100%;height:70vh;border-radius:12px}
+
+.acc-item{background:#fff;border-radius:14px;margin-bottom:10px;overflow:hidden}
+.acc-title{padding:12px;font-weight:600;cursor:pointer;display:flex;justify-content:space-between}
+.acc-content{display:none;padding:12px;color:#333}
+.acc-item.active .acc-content{display:block}
 
 @keyframes fade{
 from{opacity:0;transform:translateY(20px)}
@@ -111,130 +119,45 @@ to{opacity:1;transform:none}
 <div class="card">
 <h3>⚡ Layanan Cepat</h3>
 <div class="grid">
-<div class="btn">Absensi Datang</div>
-<div class="btn">Absensi Pulang</div>
-<div class="btn">Laporan Kinerja</div>
-<div class="btn" onclick="openStruktur()">Struktur Linmas</div>
+<a class="btn" href="https://tally.so/r/44J9Eb" target="_blank">Absensi Datang</a>
+<a class="btn" href="https://tally.so/r/kdeJp6" target="_blank">Absensi Pulang</a>
+<a class="btn" href="https://tally.so/r/81a6WA" target="_blank">Laporan Kinerja</a>
+<div class="btn" onclick="nav('gallery')">Galeri Kegiatan</div>
 </div>
 </div>
 </section>
 
 <!-- INOVASI -->
 <section id="inovasi">
-
 <div class="card">
 <h3>🚀 Inovasi MAS JAGATRA</h3>
 <p><b>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</b></p>
 </div>
 
 <div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">
-A. Deskripsi & Latar Belakang <span>›</span>
-</div>
+<div class="acc-title" onclick="toggleAcc(this)">A. Deskripsi <span>›</span></div>
 <div class="acc-content">
-<p>
-Satlinmas Kelurahan Serengan selama ini dikenal sebagai garda terdepan dalam menjaga keamanan dan ketertiban masyarakat.
-Namun dinamika kebutuhan warga semakin berkembang tidak hanya pada aspek keamanan, tetapi juga pelayanan publik,
-pemberdayaan sosial, pendataan kewilayahan, serta pendampingan administrasi kependudukan.
-</p>
-
-<ul>
-<li>Penguatan keamanan lingkungan dan kegiatan sosial.</li>
-<li>Percepatan pelayanan publik kelurahan.</li>
-<li>Dukungan pemberdayaan masyarakat.</li>
-<li>Pendampingan dokumen administrasi kependudukan.</li>
-<li>Pendataan rumah tangga kewilayahan.</li>
-</ul>
+<p>Satlinmas tidak hanya menjaga keamanan, tetapi juga membantu pelayanan publik, pemberdayaan sosial, pendataan, dan pendampingan adminduk.</p>
 </div>
 </div>
 
 <div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">
-B. Proses Penjaringan Ide <span>›</span>
-</div>
-<div class="acc-content">
-<ul>
-<li>Diskusi internal Satlinmas.</li>
-<li>Masukan perangkat kelurahan.</li>
-<li>Aspirasi masyarakat melalui RW/RT.</li>
-<li>Arahan Pemerintah Kota Surakarta.</li>
-</ul>
-</div>
-</div>
-
-<div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">
-C. Proses Penetapan Ide <span>›</span>
-</div>
-<div class="acc-content">
-<ul>
-<li>Identifikasi alternatif peran Satlinmas.</li>
-<li>Penyaringan berdasarkan urgensi dan manfaat.</li>
-<li>Kesepakatan bersama penetapan MAS JAGATRA.</li>
-</ul>
-</div>
-</div>
-
-<div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">
-D. Tujuan Inovasi <span>›</span>
-</div>
+<div class="acc-title" onclick="toggleAcc(this)">B. Tujuan <span>›</span></div>
 <div class="acc-content">
 <ul>
 <li>Mengoptimalkan peran Satlinmas.</li>
 <li>Mempercepat pelayanan publik.</li>
-<li>Mendukung percepatan Adminduk.</li>
-<li>Meningkatkan kualitas sosial masyarakat.</li>
-<li>Meningkatkan literasi teknologi Satlinmas.</li>
+<li>Mendukung program Adminduk.</li>
 </ul>
 </div>
 </div>
-
-<div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">
-E. Manfaat Inovasi <span>›</span>
-</div>
-<div class="acc-content">
-<b>Bagi Masyarakat</b>
-<ul>
-<li>Pelayanan lebih cepat dan humanis.</li>
-<li>Pendampingan dokumen Adminduk.</li>
-<li>Dukungan kegiatan sosial.</li>
-<li>Pendataan rumah tangga lebih akurat.</li>
-</ul>
-
-<b>Bagi Kelurahan</b>
-<ul>
-<li>Pelayanan lebih responsif.</li>
-<li>Database kewilayahan valid.</li>
-<li>Mitra andalan pemberdayaan.</li>
-</ul>
-</div>
-</div>
-
-<div class="acc-item">
-<div class="acc-title" onclick="toggleAcc(this)">
-F. Dampak Terukur <span>›</span>
-</div>
-<div class="acc-content">
-<ul>
-<li>Penurunan gangguan kamtibmas.</li>
-<li>90% dokumen Adminduk tersampaikan ke rumah.</li>
-<li>70% rumah tangga terdata tahun pertama.</li>
-<li>Peningkatan partisipasi kegiatan sosial.</li>
-<li>Database kelurahan berbasis digital.</li>
-</ul>
-</div>
-</div>
-
 </section>
-
 
 <!-- STRUKTUR -->
 <section id="struktur">
 <div class="card">
 <h3>👮 Struktur Satlinmas</h3>
-<p>Klik tombol Struktur di Home untuk melihat detail.</p>
+<img src="struktur.png" style="width:100%;border-radius:14px">
 </div>
 </section>
 
@@ -243,8 +166,8 @@ F. Dampak Terukur <span>›</span>
 <div class="card">
 <h3>📝 Absensi</h3>
 <div class="grid">
-<div class="btn">Datang</div>
-<div class="btn">Pulang</div>
+<a class="btn" href="https://tally.so/r/44J9Eb" target="_blank">Datang</a>
+<a class="btn" href="https://tally.so/r/kdeJp6" target="_blank">Pulang</a>
 </div>
 </div>
 </section>
@@ -253,7 +176,7 @@ F. Dampak Terukur <span>›</span>
 <section id="laporan">
 <div class="card">
 <h3>📊 Laporan Kinerja</h3>
-<p>Input dan monitoring aktivitas Satlinmas Serengan.</p>
+<a class="btn" href="https://tally.so/r/81a6WA" target="_blank">Isi Laporan</a>
 </div>
 </section>
 
@@ -261,27 +184,17 @@ F. Dampak Terukur <span>›</span>
 <section id="gallery">
 <div class="card">
 <h3>📸 Galeri Kegiatan</h3>
-<p>Dokumentasi kegiatan MAS JAGATRA</p>
 </div>
-
 <div class="card">
 <iframe src="https://drive.google.com/embeddedfolderview?id=1R6CnqItKz58MHwgTCsRZ7jYidAusAppc#grid"></iframe>
 </div>
 </section>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-content">
-<h3>Struktur Satlinmas</h3>
-<p>Isi dengan foto / daftar anggota.</p>
-<button class="btn" onclick="closeModal()">Tutup</button>
-</div>
-</div>
-
 <!-- NAV -->
 <div class="bottom-nav">
 <div onclick="nav('home')" class="active">🏠<br>Home</div>
 <div onclick="nav('inovasi')">🚀<br>Inovasi</div>
+<div onclick="nav('struktur')">👮<br>Struktur</div>
 <div onclick="nav('gallery')">📸<br>Galeri</div>
 <div onclick="nav('absen')">📍<br>Absen</div>
 <div onclick="nav('laporan')">📑<br>Laporan</div>
@@ -297,20 +210,9 @@ function nav(id){
 }
 nav("home")
 
-function openStruktur(){
- document.getElementById("modal").style.display="flex"
+function toggleAcc(el){
+ el.parentElement.classList.toggle("active")
 }
-function closeModal(){
- document.getElementById("modal").style.display="none"
-}
-
- function toggleAcc(el){
- let item = el.parentElement
- item.classList.toggle("active")
- let content = item.querySelector(".acc-content")
- content.classList.toggle("open")
-}
-
 </script>
 
 </body>

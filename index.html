@@ -16,12 +16,18 @@
 }
 
 *{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{margin:0;background:var(--bg);color:#033}
+body{
+ margin:0;
+ background:var(--bg);
+ color:#033;
+ padding-bottom:70px;
+}
 
+/* ===== HEADER / HERO ===== */
 header{
  background:linear-gradient(135deg,#1faa59,#0f3d2e);
  color:white;
- padding:30px 20px 40px;
+ padding:32px 20px 42px;
  text-align:center;
  border-radius:0 0 30px 30px;
  position:relative;
@@ -31,14 +37,14 @@ header{
 header::after{
  content:'';
  position:absolute;
- width:220px;height:220px;
+ width:240px;height:240px;
  background:rgba(255,255,255,.08);
  border-radius:50%;
- top:-60px;right:-60px;
+ top:-70px;right:-70px;
 }
 
 header img{
- width:78px;
+ width:80px;
  background:white;
  padding:8px;
  border-radius:18px;
@@ -46,25 +52,64 @@ header img{
  margin-bottom:8px;
 }
 
-.hero-title{font-size:24px;letter-spacing:1px;margin:6px 0}
-.hero-sub{font-size:13px;opacity:.9}
+.hero-title{
+ font-size:24px;
+ letter-spacing:1px;
+ margin:6px 0;
+ font-weight:700;
+}
 
-section{padding:20px;display:none}
+.hero-sub{
+ font-size:13px;
+ opacity:.9;
+}
+
+/* ===== SECTION ===== */
+section{
+ padding:18px;
+ display:none;
+}
 section.active{display:block}
 
+/* ===== CARD ===== */
 .card{
  background:white;
  border-radius:18px;
  padding:16px;
- margin:12px 0;
+ margin-bottom:14px;
  box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
+/* ===== QUICK DASHBOARD ===== */
+.quick{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
+ margin-top:-28px;
+}
+
+.quick a{
+ background:white;
+ padding:16px;
+ border-radius:18px;
+ text-decoration:none;
+ color:#033;
+ font-weight:600;
+ text-align:center;
+ box-shadow:0 6px 18px rgba(0,0,0,.12);
+ transition:.25s;
+}
+
+.quick a:hover{
+ transform:translateY(-4px);
+}
+
+/* ===== BUTTON ===== */
 .btn{
  display:block;
  text-align:center;
  padding:14px;
- margin:6px 0;
+ margin:8px 0;
  background:var(--green);
  color:white;
  border-radius:14px;
@@ -72,34 +117,14 @@ section.active{display:block}
  font-weight:600;
 }
 
+/* ===== GRID ===== */
 .grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
  gap:12px;
 }
 
-.quick{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
- margin-top:-20px;
-}
-
-.quick a{
- background:white;
- padding:14px;
- border-radius:18px;
- text-decoration:none;
- color:#033;
- font-weight:600;
- box-shadow:0 6px 18px rgba(0,0,0,.1);
- transition:.25s;
-}
-
-.quick a:hover{
- transform:translateY(-4px) scale(1.02);
-}
-
+/* ===== BOTTOM NAV ===== */
 .bottom-nav{
  position:fixed;
  bottom:0;left:0;right:0;
@@ -107,7 +132,8 @@ section.active{display:block}
  display:flex;
  justify-content:space-around;
  padding:10px 0;
- box-shadow:0 -4px 12px rgba(0,0,0,.15);
+ box-shadow:0 -4px 14px rgba(0,0,0,.15);
+ z-index:10;
 }
 
 .bottom-nav button{
@@ -117,10 +143,15 @@ section.active{display:block}
  color:#666;
 }
 
-.bottom-nav button.active{color:var(--green)}
+.bottom-nav button.active{
+ color:var(--green);
+ font-weight:600;
+}
 
-.fade-in{animation:fade .4s}
-
+/* ===== ANIMATION ===== */
+.fade-in{
+ animation:fade .4s;
+}
 @keyframes fade{
  from{opacity:0;transform:translateY(15px)}
  to{opacity:1;transform:none}
@@ -130,6 +161,7 @@ section.active{display:block}
 
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
 <img src="img/logo-back.png">
 <div class="hero-title">MAS JAGATRA</div>
@@ -138,13 +170,14 @@ Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat
 </div>
 </header>
 
+<!-- ===== HOME ===== -->
 <section id="home" class="active fade-in">
 
 <div class="quick">
-<a href="https://tally.so/r/44J9Eb">✅ Absensi Datang</a>
-<a href="https://tally.so/r/kdeJp6">🏁 Absensi Pulang</a>
-<a href="https://tally.so/r/81a6WA">📝 Laporan Kinerja</a>
-<a href="#struktur" onclick="nav('struktur',document.querySelectorAll('.bottom-nav button')[2])">👮 Struktur</a>
+<a href="https://tally.so/r/44J9Eb">✅ Datang</a>
+<a href="https://tally.so/r/kdeJp6">🏁 Pulang</a>
+<a href="https://tally.so/r/81a6WA">📝 Laporan</a>
+<a href="#" onclick="nav('struktur',document.getElementById('btnStruktur'))">👮 Struktur</a>
 </div>
 
 <div class="card">
@@ -160,15 +193,16 @@ kependudukan dan pencatatan sipil masyarakat.
 <div class="card">
 <h3>⚡ Layanan Cepat</h3>
 <div class="grid">
-<a class="btn" href="https://tally.so/r/44J9Eb">Datang</a>
-<a class="btn" href="https://tally.so/r/kdeJp6">Pulang</a>
-<a class="btn" href="https://tally.so/r/81a6WA">Laporan</a>
-<a class="btn" href="#inovasi" onclick="nav('inovasi',document.querySelectorAll('.bottom-nav button')[1])">Inovasi</a>
+<a class="btn" href="https://tally.so/r/44J9Eb">Absensi Datang</a>
+<a class="btn" href="https://tally.so/r/kdeJp6">Absensi Pulang</a>
+<a class="btn" href="https://tally.so/r/81a6WA">Laporan Kinerja</a>
+<a class="btn" href="#" onclick="nav('inovasi',document.getElementById('btnInovasi'))">Inovasi</a>
 </div>
 </div>
 
 </section>
 
+<!-- ===== INOVASI ===== -->
 <section id="inovasi">
 <div class="card">
 <h3>🚀 Inovasi MAS JAGATRA</h3>
@@ -182,6 +216,7 @@ kependudukan dan pencatatan sipil masyarakat.
 </div>
 </section>
 
+<!-- ===== STRUKTUR ===== -->
 <section id="struktur">
 <div class="card">
 <h3>👮 Susunan Satlinmas</h3>
@@ -189,6 +224,7 @@ kependudukan dan pencatatan sipil masyarakat.
 </div>
 </section>
 
+<!-- ===== ABSEN ===== -->
 <section id="absen">
 <div class="card">
 <h3>📍 Absensi</h3>
@@ -197,6 +233,7 @@ kependudukan dan pencatatan sipil masyarakat.
 </div>
 </section>
 
+<!-- ===== LAPORAN ===== -->
 <section id="laporan">
 <div class="card">
 <h3>📊 Laporan Aktivitas</h3>
@@ -204,20 +241,26 @@ kependudukan dan pencatatan sipil masyarakat.
 </div>
 </section>
 
+<!-- ===== BOTTOM NAV ===== -->
 <div class="bottom-nav">
 <button class="active" onclick="nav('home',this)">🏠<br>Home</button>
-<button onclick="nav('inovasi',this)">🚀<br>Inovasi</button>
-<button onclick="nav('struktur',this)">👮<br>Struktur</button>
+<button id="btnInovasi" onclick="nav('inovasi',this)">🚀<br>Inovasi</button>
+<button id="btnStruktur" onclick="nav('struktur',this)">👮<br>Struktur</button>
 <button onclick="nav('absen',this)">📍<br>Absen</button>
 <button onclick="nav('laporan',this)">📊<br>Laporan</button>
 </div>
 
 <script>
 function nav(id,el){
- document.querySelectorAll("section").forEach(s=>s.classList.remove("active","fade-in"))
+ document.querySelectorAll("section").forEach(s=>{
+  s.classList.remove("active","fade-in")
+ })
  document.getElementById(id).classList.add("active","fade-in")
- document.querySelectorAll(".bottom-nav button").forEach(b=>b.classList.remove("active"))
- el.classList.add("active")
+
+ document.querySelectorAll(".bottom-nav button").forEach(b=>{
+  b.classList.remove("active")
+ })
+ if(el) el.classList.add("active")
 }
 
 if('serviceWorker' in navigator){

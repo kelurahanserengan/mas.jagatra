@@ -175,7 +175,7 @@ kependudukan dan pencatatan sipil masyarakat.
 <a class="btn" href="https://tally.so/r/44J9Eb">Absensi Datang</a>
 <a class="btn" href="https://tally.so/r/kdeJp6">Absensi Pulang</a>
 <a class="btn" href="https://tally.so/r/81a6WA">Laporan Kinerja</a>
-<a class="btn" href="#inovasi" onclick="nav('inovasi',document.querySelectorAll('.bottom-nav button')[1])">Inovasi</a>
+<div class="btn" onclick="openGallery()">📸 Galeri Kegiatan</div>
 </div>
 </div>
 
@@ -289,6 +289,22 @@ F. Dampak Terukur <span>›</span>
 </div>
 
 </section>
+<section id="gallery" style="display:none">
+
+<div class="card">
+<h3>📸 Galeri Kegiatan Satlinmas</h3>
+<p>Dokumentasi kegiatan MAS JAGATRA Kelurahan Serengan</p>
+</div>
+
+<div class="card">
+<iframe 
+id="driveFrame"
+src="https://drive.google.com/embeddedfolderview?id=1R6CnqItKz58MHwgTCsRZ7jYidAusAppc#grid"
+style="width:100%;height:70vh;border:0;border-radius:12px">
+</iframe>
+</div>
+
+</section>
 
 
 <section id="struktur">
@@ -339,6 +355,13 @@ if('serviceWorker' in navigator){
  let content = item.querySelector(".acc-content")
  content.classList.toggle("open")
 }
+
+ function openGallery(){
+ document.querySelectorAll("section").forEach(s=>s.style.display="none")
+ document.getElementById("gallery").style.display="block"
+ window.scrollTo(0,0)
+}
+
 
 </script>
 

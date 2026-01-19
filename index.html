@@ -16,18 +16,12 @@
 }
 
 *{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{
- margin:0;
- background:var(--bg);
- color:#033;
- padding-bottom:70px;
-}
+body{margin:0;background:var(--bg);color:#033}
 
-/* ===== HEADER / HERO ===== */
 header{
  background:linear-gradient(135deg,#1faa59,#0f3d2e);
  color:white;
- padding:32px 20px 42px;
+ padding:30px 20px 40px;
  text-align:center;
  border-radius:0 0 30px 30px;
  position:relative;
@@ -37,14 +31,14 @@ header{
 header::after{
  content:'';
  position:absolute;
- width:240px;height:240px;
+ width:220px;height:220px;
  background:rgba(255,255,255,.08);
  border-radius:50%;
- top:-70px;right:-70px;
+ top:-60px;right:-60px;
 }
 
 header img{
- width:80px;
+ width:78px;
  background:white;
  padding:8px;
  border-radius:18px;
@@ -52,64 +46,25 @@ header img{
  margin-bottom:8px;
 }
 
-.hero-title{
- font-size:24px;
- letter-spacing:1px;
- margin:6px 0;
- font-weight:700;
-}
+.hero-title{font-size:24px;letter-spacing:1px;margin:6px 0}
+.hero-sub{font-size:13px;opacity:.9}
 
-.hero-sub{
- font-size:13px;
- opacity:.9;
-}
-
-/* ===== SECTION ===== */
-section{
- padding:18px;
- display:none;
-}
+section{padding:20px;display:none}
 section.active{display:block}
 
-/* ===== CARD ===== */
 .card{
  background:white;
  border-radius:18px;
  padding:16px;
- margin-bottom:14px;
+ margin:12px 0;
  box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
-/* ===== QUICK DASHBOARD ===== */
-.quick{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
- margin-top:-28px;
-}
-
-.quick a{
- background:white;
- padding:16px;
- border-radius:18px;
- text-decoration:none;
- color:#033;
- font-weight:600;
- text-align:center;
- box-shadow:0 6px 18px rgba(0,0,0,.12);
- transition:.25s;
-}
-
-.quick a:hover{
- transform:translateY(-4px);
-}
-
-/* ===== BUTTON ===== */
 .btn{
  display:block;
  text-align:center;
  padding:14px;
- margin:8px 0;
+ margin:6px 0;
  background:var(--green);
  color:white;
  border-radius:14px;
@@ -117,14 +72,12 @@ section.active{display:block}
  font-weight:600;
 }
 
-/* ===== GRID ===== */
 .grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
  gap:12px;
 }
 
-/* ===== BOTTOM NAV ===== */
 .bottom-nav{
  position:fixed;
  bottom:0;left:0;right:0;
@@ -132,8 +85,7 @@ section.active{display:block}
  display:flex;
  justify-content:space-around;
  padding:10px 0;
- box-shadow:0 -4px 14px rgba(0,0,0,.15);
- z-index:10;
+ box-shadow:0 -4px 12px rgba(0,0,0,.15);
 }
 
 .bottom-nav button{
@@ -143,25 +95,60 @@ section.active{display:block}
  color:#666;
 }
 
-.bottom-nav button.active{
- color:var(--green);
- font-weight:600;
-}
+.bottom-nav button.active{color:var(--green)}
 
-/* ===== ANIMATION ===== */
-.fade-in{
- animation:fade .4s;
-}
+.fade-in{animation:fade .4s}
+
 @keyframes fade{
  from{opacity:0;transform:translateY(15px)}
  to{opacity:1;transform:none}
 }
+
+ .acc-item{
+ background:#fff;
+ border-radius:14px;
+ margin:10px 0;
+ box-shadow:0 4px 12px rgba(0,0,0,.08);
+ overflow:hidden;
+}
+
+.acc-title{
+ padding:14px;
+ font-weight:600;
+ cursor:pointer;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+
+.acc-title span{
+ transition:.3s;
+}
+
+.acc-content{
+ max-height:0;
+ overflow:hidden;
+ transition:max-height .4s ease;
+ padding:0 14px;
+}
+
+.acc-content.open{
+ padding:14px;
+}
+
+.acc-item.active .acc-content{
+ max-height:3000px;
+}
+
+.acc-item.active .acc-title span{
+ transform:rotate(90deg);
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header>
 <img src="img/logo-back.png">
 <div class="hero-title">MAS JAGATRA</div>
@@ -170,15 +157,7 @@ Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat
 </div>
 </header>
 
-<!-- ===== HOME ===== -->
 <section id="home" class="active fade-in">
-
-<div class="quick">
-<a href="https://tally.so/r/44J9Eb">✅ Datang</a>
-<a href="https://tally.so/r/kdeJp6">🏁 Pulang</a>
-<a href="https://tally.so/r/81a6WA">📝 Laporan</a>
-<a href="#" onclick="nav('struktur',document.getElementById('btnStruktur'))">👮 Struktur</a>
-</div>
 
 <div class="card">
 <h3>🌱 Tentang MAS JAGATRA</h3>
@@ -196,27 +175,122 @@ kependudukan dan pencatatan sipil masyarakat.
 <a class="btn" href="https://tally.so/r/44J9Eb">Absensi Datang</a>
 <a class="btn" href="https://tally.so/r/kdeJp6">Absensi Pulang</a>
 <a class="btn" href="https://tally.so/r/81a6WA">Laporan Kinerja</a>
-<a class="btn" href="#" onclick="nav('inovasi',document.getElementById('btnInovasi'))">Inovasi</a>
+<a class="btn" href="#inovasi" onclick="nav('inovasi',document.querySelectorAll('.bottom-nav button')[1])">Inovasi</a>
 </div>
 </div>
 
 </section>
 
-<!-- ===== INOVASI ===== -->
 <section id="inovasi">
+
 <div class="card">
 <h3>🚀 Inovasi MAS JAGATRA</h3>
+<p><b>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</b></p>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+A. Deskripsi & Latar Belakang <span>›</span>
+</div>
+<div class="acc-content">
+<p>
+Satlinmas Kelurahan Serengan selama ini dikenal sebagai garda terdepan dalam menjaga keamanan dan ketertiban masyarakat.
+Namun dinamika kebutuhan warga semakin berkembang tidak hanya pada aspek keamanan, tetapi juga pelayanan publik,
+pemberdayaan sosial, pendataan kewilayahan, serta pendampingan administrasi kependudukan.
+</p>
+
 <ul>
-<li>Pelayanan berbasis partisipasi Satlinmas</li>
-<li>Pendampingan administrasi kependudukan</li>
-<li>Respon cepat keamanan lingkungan</li>
-<li>Solidaritas sosial masyarakat</li>
-<li>Digitalisasi absensi & laporan</li>
+<li>Penguatan keamanan lingkungan dan kegiatan sosial.</li>
+<li>Percepatan pelayanan publik kelurahan.</li>
+<li>Dukungan pemberdayaan masyarakat.</li>
+<li>Pendampingan dokumen administrasi kependudukan.</li>
+<li>Pendataan rumah tangga kewilayahan.</li>
 </ul>
 </div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+B. Proses Penjaringan Ide <span>›</span>
+</div>
+<div class="acc-content">
+<ul>
+<li>Diskusi internal Satlinmas.</li>
+<li>Masukan perangkat kelurahan.</li>
+<li>Aspirasi masyarakat melalui RW/RT.</li>
+<li>Arahan Pemerintah Kota Surakarta.</li>
+</ul>
+</div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+C. Proses Penetapan Ide <span>›</span>
+</div>
+<div class="acc-content">
+<ul>
+<li>Identifikasi alternatif peran Satlinmas.</li>
+<li>Penyaringan berdasarkan urgensi dan manfaat.</li>
+<li>Kesepakatan bersama penetapan MAS JAGATRA.</li>
+</ul>
+</div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+D. Tujuan Inovasi <span>›</span>
+</div>
+<div class="acc-content">
+<ul>
+<li>Mengoptimalkan peran Satlinmas.</li>
+<li>Mempercepat pelayanan publik.</li>
+<li>Mendukung percepatan Adminduk.</li>
+<li>Meningkatkan kualitas sosial masyarakat.</li>
+<li>Meningkatkan literasi teknologi Satlinmas.</li>
+</ul>
+</div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+E. Manfaat Inovasi <span>›</span>
+</div>
+<div class="acc-content">
+<b>Bagi Masyarakat</b>
+<ul>
+<li>Pelayanan lebih cepat dan humanis.</li>
+<li>Pendampingan dokumen Adminduk.</li>
+<li>Dukungan kegiatan sosial.</li>
+<li>Pendataan rumah tangga lebih akurat.</li>
+</ul>
+
+<b>Bagi Kelurahan</b>
+<ul>
+<li>Pelayanan lebih responsif.</li>
+<li>Database kewilayahan valid.</li>
+<li>Mitra andalan pemberdayaan.</li>
+</ul>
+</div>
+</div>
+
+<div class="acc-item">
+<div class="acc-title" onclick="toggleAcc(this)">
+F. Dampak Terukur <span>›</span>
+</div>
+<div class="acc-content">
+<ul>
+<li>Penurunan gangguan kamtibmas.</li>
+<li>90% dokumen Adminduk tersampaikan ke rumah.</li>
+<li>70% rumah tangga terdata tahun pertama.</li>
+<li>Peningkatan partisipasi kegiatan sosial.</li>
+<li>Database kelurahan berbasis digital.</li>
+</ul>
+</div>
+</div>
+
 </section>
 
-<!-- ===== STRUKTUR ===== -->
+
 <section id="struktur">
 <div class="card">
 <h3>👮 Susunan Satlinmas</h3>
@@ -224,7 +298,6 @@ kependudukan dan pencatatan sipil masyarakat.
 </div>
 </section>
 
-<!-- ===== ABSEN ===== -->
 <section id="absen">
 <div class="card">
 <h3>📍 Absensi</h3>
@@ -233,7 +306,6 @@ kependudukan dan pencatatan sipil masyarakat.
 </div>
 </section>
 
-<!-- ===== LAPORAN ===== -->
 <section id="laporan">
 <div class="card">
 <h3>📊 Laporan Aktivitas</h3>
@@ -241,31 +313,33 @@ kependudukan dan pencatatan sipil masyarakat.
 </div>
 </section>
 
-<!-- ===== BOTTOM NAV ===== -->
 <div class="bottom-nav">
 <button class="active" onclick="nav('home',this)">🏠<br>Home</button>
-<button id="btnInovasi" onclick="nav('inovasi',this)">🚀<br>Inovasi</button>
-<button id="btnStruktur" onclick="nav('struktur',this)">👮<br>Struktur</button>
+<button onclick="nav('inovasi',this)">🚀<br>Inovasi</button>
+<button onclick="nav('struktur',this)">👮<br>Struktur</button>
 <button onclick="nav('absen',this)">📍<br>Absen</button>
 <button onclick="nav('laporan',this)">📊<br>Laporan</button>
 </div>
 
 <script>
 function nav(id,el){
- document.querySelectorAll("section").forEach(s=>{
-  s.classList.remove("active","fade-in")
- })
+ document.querySelectorAll("section").forEach(s=>s.classList.remove("active","fade-in"))
  document.getElementById(id).classList.add("active","fade-in")
-
- document.querySelectorAll(".bottom-nav button").forEach(b=>{
-  b.classList.remove("active")
- })
- if(el) el.classList.add("active")
+ document.querySelectorAll(".bottom-nav button").forEach(b=>b.classList.remove("active"))
+ el.classList.add("active")
 }
 
 if('serviceWorker' in navigator){
  navigator.serviceWorker.register('sw.js')
 }
+
+ function toggleAcc(el){
+ let item = el.parentElement
+ item.classList.toggle("active")
+ let content = item.querySelector(".acc-content")
+ content.classList.toggle("open")
+}
+
 </script>
 
 </body>

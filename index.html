@@ -3,187 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAS JAGATRA</title>
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1faa59">
+<title>MAS JAGATRA - Serengan</title>
 
 <style>
-:root{
- --green:#1faa59;
- --dark:#0f3d2e;
- --bg:#f4fbf7;
+*{box-sizing:border-box;font-family:system-ui}
+body{
+ margin:0;
+ background:#f4f6f8;
+ color:#222;
 }
-
-*{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
-body{margin:0;background:var(--bg);color:#033;padding-bottom:90px}
 
 header{
- background:linear-gradient(135deg,#1faa59,#0f3d2e);
- color:white;padding:18px;text-align:center;
- border-radius:0 0 28px 28px;
- animation:fade .6s;
+ padding:18px;
+ text-align:center;
+ background:white;
+ font-weight:700;
+ box-shadow:0 2px 6px rgba(0,0,0,.05);
 }
 
-@keyframes fade{
- from{opacity:0;transform:translateY(12px)}
- to{opacity:1;transform:none}
+.container{
+ padding:16px;
+ padding-bottom:90px;
 }
-
-section{padding:18px;display:none;animation:fade .4s}
-section.active{display:block}
 
 .card{
- background:white;border-radius:18px;
- padding:16px;margin:12px 0;
- box-shadow:0 6px 18px rgba(0,0,0,.08);
+ background:white;
+ border-radius:18px;
+ padding:16px;
+ margin-bottom:16px;
+ box-shadow:0 6px 18px rgba(0,0,0,.06);
+ animation:fade .4s;
+}
+
+.menu{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
+}
+
+.menu a{
+ text-decoration:none;
+ background:#111;
+ color:white;
+ padding:14px;
+ border-radius:14px;
+ text-align:center;
+ font-weight:600;
  transition:.25s;
 }
-.card:active{transform:scale(.97)}
 
-.btn{
- display:block;text-align:center;
- padding:14px;margin:10px 0;
- background:var(--green);color:white;
- border-radius:14px;text-decoration:none;
- font-weight:600;
-}
+.menu a:hover{transform:scale(1.05)}
 
-.grid{
+.gallery{
  display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
+ grid-template-columns:repeat(3,1fr);
+ gap:10px;
 }
 
-.member{
- text-align:center;
- cursor:pointer;
-}
-.member img{
+.gallery img{
  width:100%;
+ aspect-ratio:1/1;
+ object-fit:cover;
  border-radius:14px;
- box-shadow:0 4px 10px rgba(0,0,0,.2);
-}
-.member p{margin:6px 0 0;font-size:13px}
-
-.stats{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
+ cursor:pointer;
+ transition:.25s;
 }
 
-.stat{
- background:linear-gradient(135deg,#1faa59,#0f3d2e);
- color:white;padding:16px;border-radius:16px;
- text-align:center;
- box-shadow:0 6px 14px rgba(0,0,0,.2);
-}
+.gallery img:hover{transform:scale(1.05)}
 
-.bottom-nav{
- position:fixed;bottom:0;left:0;right:0;
+nav{
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
  background:white;
  display:flex;
  justify-content:space-around;
  padding:10px 0;
- box-shadow:0 -4px 12px rgba(0,0,0,.15);
+ box-shadow:0 -4px 14px rgba(0,0,0,.08);
 }
 
-.bottom-nav button{
- background:none;border:none;
- font-size:12px;color:#666;
+nav a{
+ text-decoration:none;
+ color:#222;
+ font-size:12px;
+ text-align:center;
 }
 
-.bottom-nav button.active{color:var(--green);font-weight:700}
+nav span{font-size:22px;display:block}
 
-/* MODAL */
 .modal{
- position:fixed;inset:0;
- background:rgba(0,0,0,.5);
- display:none;align-items:center;justify-content:center;
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.6);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ z-index:99;
 }
-.modal.active{display:flex}
+
 .modal-box{
- background:white;padding:20px;border-radius:18px;
- width:85%;max-width:300px;text-align:center;
- animation:fade .3s;
+ background:white;
+ width:90%;
+ max-width:420px;
+ padding:18px;
+ border-radius:20px;
 }
-.modal-box img{width:100px;border-radius:14px}
+
+.linmas-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+}
+
+.person{text-align:center;cursor:pointer}
+
+.person img{
+ width:100%;
+ border-radius:14px;
+}
+
+.person p{font-size:12px;margin:6px 0}
+
+button{
+ width:100%;
+ padding:10px;
+ border:0;
+ border-radius:14px;
+ background:#111;
+ color:white;
+ margin-top:10px;
+}
+
+@keyframes fade{
+ from{opacity:0;transform:translateY(20px)}
+ to{opacity:1;transform:none}
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h2>MAS JAGATRA</h2>
-<p>Satlinmas Kelurahan Serengan</p>
+MAS JAGATRA – SATLINMAS SERENGAN
 </header>
 
-<section id="home" class="active">
+<div class="container">
+
 <div class="card">
-<h3>📊 Dashboard</h3>
-<div class="stats">
-<div class="stat"><h2>15</h2><p>Anggota</p></div>
-<div class="stat"><h2>32</h2><p>Kegiatan</p></div>
-<div class="stat"><h2>18</h2><p>Laporan</p></div>
-<div class="stat"><h2>12</h2><p>Hadir</p></div>
+<b>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</b>
+<p>Satlinmas Serengan sebagai garda keamanan, ketertiban, dan agen penertiban dokumen kependudukan masyarakat.</p>
+</div>
+
+<div class="card menu">
+<a href="https://tally.so/r/44J9Eb">Absensi Datang</a>
+<a href="https://tally.so/r/kdeJp6">Absensi Pulang</a>
+<a href="https://tally.so/r/81a6WA">Laporan Kinerja</a>
+<a href="#gallery">Gallery Kegiatan</a>
+</div>
+
+<div class="card" id="gallery">
+<h3>Gallery Kegiatan</h3>
+<div class="gallery">
+<img src="img/g1.jpg">
+<img src="img/g2.jpg">
+<img src="img/g3.jpg">
+<img src="img/g4.jpg">
+<img src="img/g5.jpg">
+<img src="img/g6.jpg">
 </div>
 </div>
 
-<a class="btn" href="https://tally.so/r/44J9Eb">✅ Absensi Datang</a>
-<a class="btn" href="https://tally.so/r/kdeJp6">🏁 Absensi Pulang</a>
-<a class="btn" href="https://tally.so/r/81a6WA">📝 Laporan Kinerja</a>
-</section>
-
-<section id="struktur">
-<div class="card">
-<h3>👮 Profil Anggota</h3>
-<div class="grid">
-<div class="member" onclick="show('Eko Haryanto','Danton','img/eko.jpg')">
-<img src="img/eko.jpg"><p>Eko Haryanto</p>
-</div>
-<div class="member" onclick="show('Tukiran','Wadanton','img/tukiran.jpg')">
-<img src="img/tukiran.jpg"><p>Tukiran</p>
-</div>
-</div>
-</div>
-</section>
-
-<section id="laporan">
-<div class="card">
-<h3>📊 Laporan</h3>
-<a class="btn" href="https://tally.so/r/81a6WA">Isi Laporan</a>
-</div>
-</section>
-
-<div class="bottom-nav">
-<button class="active" onclick="nav('home',this)">🏠<br>Home</button>
-<button onclick="nav('struktur',this)">👮<br>Profil</button>
-<button onclick="nav('laporan',this)">📊<br>Laporan</button>
 </div>
 
-<div class="modal" id="modal" onclick="hide()">
+<nav>
+<a href="#"><span>🏠</span>Home</a>
+<a href="javascript:openLinmas()"><span>👮</span>Susunan</a>
+<a href="#gallery"><span>📸</span>Gallery</a>
+<a href="#"><span>📊</span>Info</a>
+</nav>
+
+<div class="modal" id="linmasModal">
 <div class="modal-box">
-<img id="mImg">
-<h3 id="mNama"></h3>
-<p id="mJabatan"></p>
+<h3>Susunan Satlinmas</h3>
+
+<div class="linmas-grid">
+<div class="person"><img src="img/eko.jpg"><p>Eko Haryanto</p></div>
+<div class="person"><img src="img/tukiran.jpg"><p>Tukiran</p></div>
+<div class="person"><img src="img/suprono.jpg"><p>Suprono</p></div>
+<div class="person"><img src="img/sumadi.jpg"><p>Sumadi</p></div>
+<div class="person"><img src="img/anggi.jpg"><p>Anggi</p></div>
+<div class="person"><img src="img/najwa.jpg"><p>Najwa</p></div>
+</div>
+
+<button onclick="closeLinmas()">Tutup</button>
 </div>
 </div>
 
 <script>
-function nav(id,el){
- document.querySelectorAll("section").forEach(s=>s.classList.remove("active"))
- document.getElementById(id).classList.add("active")
- document.querySelectorAll(".bottom-nav button").forEach(b=>b.classList.remove("active"))
- el.classList.add("active")
+function openLinmas(){
+ document.getElementById('linmasModal').style.display='flex';
 }
-
-function show(n,j,i){
- modal.classList.add("active")
- mNama.innerText=n
- mJabatan.innerText=j
- mImg.src=i
+function closeLinmas(){
+ document.getElementById('linmasModal').style.display='none';
 }
-function hide(){modal.classList.remove("active")}
 </script>
 
 </body>

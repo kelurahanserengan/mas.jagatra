@@ -3,209 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MAS JAGATRA - Serengan</title>
+<title>MAS JAGATRA - Satlinmas Serengan</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1faa59">
 
 <style>
-*{box-sizing:border-box;font-family:system-ui}
-body{
- margin:0;
- background:#f4f6f8;
- color:#222;
+:root{
+ --green:#1faa59;
+ --dark:#0f3d2e;
+ --bg:#f4fbf7;
 }
 
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{margin:0;background:var(--bg);color:#033}
 header{
- padding:18px;
- text-align:center;
- background:white;
- font-weight:700;
- box-shadow:0 2px 6px rgba(0,0,0,.05);
+ background:linear-gradient(135deg,#1faa59,#0f3d2e);
+ color:white;padding:20px;text-align:center;
+ border-radius:0 0 25px 25px;
 }
-
-.container{
- padding:16px;
- padding-bottom:90px;
-}
+header img{width:70px}
+section{padding:20px;display:none}
+section.active{display:block}
 
 .card{
- background:white;
- border-radius:18px;
- padding:16px;
- margin-bottom:16px;
- box-shadow:0 6px 18px rgba(0,0,0,.06);
- animation:fade .4s;
+ background:white;border-radius:16px;
+ padding:16px;margin:12px 0;
+ box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
-.menu{
+.btn{
+ display:block;text-align:center;
+ padding:14px;margin:10px 0;
+ background:var(--green);color:white;
+ border-radius:14px;text-decoration:none;
+ font-weight:600;
+}
+
+.grid{
  display:grid;
- grid-template-columns:repeat(2,1fr);
+ grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
  gap:12px;
 }
 
-.menu a{
- text-decoration:none;
- background:#111;
- color:white;
- padding:14px;
- border-radius:14px;
- text-align:center;
- font-weight:600;
- transition:.25s;
+.member img{
+ width:100%;border-radius:14px;
 }
 
-.menu a:hover{transform:scale(1.05)}
-
-.gallery{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:10px;
-}
-
-.gallery img{
- width:100%;
- aspect-ratio:1/1;
- object-fit:cover;
- border-radius:14px;
- cursor:pointer;
- transition:.25s;
-}
-
-.gallery img:hover{transform:scale(1.05)}
-
-nav{
- position:fixed;
- bottom:0;
- left:0;
- right:0;
+.bottom-nav{
+ position:fixed;bottom:0;left:0;right:0;
  background:white;
  display:flex;
  justify-content:space-around;
  padding:10px 0;
- box-shadow:0 -4px 14px rgba(0,0,0,.08);
+ box-shadow:0 -4px 12px rgba(0,0,0,.15);
 }
 
-nav a{
- text-decoration:none;
- color:#222;
- font-size:12px;
- text-align:center;
+.bottom-nav button{
+ background:none;border:none;
+ font-size:12px;color:#666;
 }
 
-nav span{font-size:22px;display:block}
-
-.modal{
- position:fixed;
- inset:0;
- background:rgba(0,0,0,.6);
- display:none;
- align-items:center;
- justify-content:center;
- z-index:99;
-}
-
-.modal-box{
- background:white;
- width:90%;
- max-width:420px;
- padding:18px;
- border-radius:20px;
-}
-
-.linmas-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:12px;
-}
-
-.person{text-align:center;cursor:pointer}
-
-.person img{
- width:100%;
- border-radius:14px;
-}
-
-.person p{font-size:12px;margin:6px 0}
-
-button{
- width:100%;
- padding:10px;
- border:0;
- border-radius:14px;
- background:#111;
- color:white;
- margin-top:10px;
-}
-
-@keyframes fade{
- from{opacity:0;transform:translateY(20px)}
- to{opacity:1;transform:none}
-}
+.bottom-nav button.active{color:var(--green)}
 </style>
 </head>
 
 <body>
 
 <header>
-MAS JAGATRA – SATLINMAS SERENGAN
+<img src="img/logo-back.png">
+<h2>MAS JAGATRA</h2>
+<p>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</p>
 </header>
 
-<div class="container">
-
+<section id="home" class="active">
 <div class="card">
-<b>Mitra Andalan Satlinmas – Jaga lan Tetulung Rakyat</b>
-<p>Satlinmas Serengan sebagai garda keamanan, ketertiban, dan agen penertiban dokumen kependudukan masyarakat.</p>
+<h3>🌱 Tentang MAS JAGATRA</h3>
+<p>
+MAS JAGATRA adalah inovasi Kelurahan Serengan yang
+menguatkan peran Satlinmas sebagai garda terdepan keamanan,
+ketertiban, solidaritas sosial, serta agen penertiban dokumen
+kependudukan dan pencatatan sipil masyarakat.
+</p>
 </div>
 
-<div class="card menu">
-<a href="https://tally.so/r/44J9Eb">Absensi Datang</a>
-<a href="https://tally.so/r/kdeJp6">Absensi Pulang</a>
-<a href="https://tally.so/r/81a6WA">Laporan Kinerja</a>
-<a href="#gallery">Gallery Kegiatan</a>
-</div>
+<a class="btn" href="https://tally.so/r/44J9Eb">✅ Absensi Datang</a>
+<a class="btn" href="https://tally.so/r/kdeJp6">🏁 Absensi Pulang</a>
+<a class="btn" href="https://tally.so/r/81a6WA">📝 Laporan Kinerja</a>
+</section>
 
-<div class="card" id="gallery">
-<h3>Gallery Kegiatan</h3>
-<div class="gallery">
-<img src="img/g1.jpg">
-<img src="img/g2.jpg">
-<img src="img/g3.jpg">
-<img src="img/g4.jpg">
-<img src="img/g5.jpg">
-<img src="img/g6.jpg">
+<section id="inovasi">
+<div class="card">
+<h3>🚀 Inovasi MAS JAGATRA</h3>
+<ul>
+<li>Pelayanan berbasis partisipasi Satlinmas</li>
+<li>Pendampingan administrasi kependudukan</li>
+<li>Respon cepat keamanan lingkungan</li>
+<li>Solidaritas sosial masyarakat</li>
+<li>Digitalisasi absensi & laporan</li>
+</ul>
 </div>
+</section>
+
+<section id="struktur">
+<div class="card">
+<h3>👮 Susunan Satlinmas</h3>
+<img src="img/struktur.png" style="width:100%;border-radius:16px">
 </div>
+</section>
 
+<section id="absen">
+<div class="card">
+<h3>📍 Absensi</h3>
+<a class="btn" href="https://tally.so/r/44J9Eb">Datang</a>
+<a class="btn" href="https://tally.so/r/kdeJp6">Pulang</a>
 </div>
+</section>
 
-<nav>
-<a href="#"><span>🏠</span>Home</a>
-<a href="javascript:openLinmas()"><span>👮</span>Susunan</a>
-<a href="#gallery"><span>📸</span>Gallery</a>
-<a href="#"><span>📊</span>Info</a>
-</nav>
-
-<div class="modal" id="linmasModal">
-<div class="modal-box">
-<h3>Susunan Satlinmas</h3>
-
-<div class="linmas-grid">
-<div class="person"><img src="img/eko.jpg"><p>Eko Haryanto</p></div>
-<div class="person"><img src="img/tukiran.jpg"><p>Tukiran</p></div>
-<div class="person"><img src="img/suprono.jpg"><p>Suprono</p></div>
-<div class="person"><img src="img/sumadi.jpg"><p>Sumadi</p></div>
-<div class="person"><img src="img/anggi.jpg"><p>Anggi</p></div>
-<div class="person"><img src="img/najwa.jpg"><p>Najwa</p></div>
+<section id="laporan">
+<div class="card">
+<h3>📊 Laporan Aktivitas</h3>
+<a class="btn" href="https://tally.so/r/81a6WA">Isi Laporan</a>
 </div>
+</section>
 
-<button onclick="closeLinmas()">Tutup</button>
-</div>
+<div class="bottom-nav">
+<button class="active" onclick="nav('home',this)">🏠<br>Home</button>
+<button onclick="nav('inovasi',this)">🚀<br>Inovasi</button>
+<button onclick="nav('struktur',this)">👮<br>Struktur</button>
+<button onclick="nav('absen',this)">📍<br>Absen</button>
+<button onclick="nav('laporan',this)">📊<br>Laporan</button>
 </div>
 
 <script>
-function openLinmas(){
- document.getElementById('linmasModal').style.display='flex';
+function nav(id,el){
+ document.querySelectorAll("section").forEach(s=>s.classList.remove("active"))
+ document.getElementById(id).classList.add("active")
+ document.querySelectorAll(".bottom-nav button").forEach(b=>b.classList.remove("active"))
+ el.classList.add("active")
 }
-function closeLinmas(){
- document.getElementById('linmasModal').style.display='none';
+
+if('serviceWorker' in navigator){
+ navigator.serviceWorker.register('sw.js')
 }
 </script>
 

@@ -6,221 +6,221 @@
 <title>Mas Jagatra | Satlinmas Serengan</title>
 
 <style>
-:root {
-  --abu: #6d6d6d;
-  --abu-gelap: #444;
-  --abu-terang: #f3f3f3;
-  --aksen: #222;
+:root{
+  --hijau:#1fa463;
+  --hijau2:#0c7c4c;
+  --bg:#f4fbf7;
 }
 
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,Segoe UI;
+  background:var(--bg);
+  color:#333;
+  padding-bottom:80px;
 }
 
-body {
-  margin: 0;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
-  background: var(--abu-terang);
-  color: #333;
+/* HEADER */
+header{
+  background:linear-gradient(160deg,var(--hijau),var(--hijau2));
+  color:#fff;
+  padding:26px 18px 40px;
+  border-radius:0 0 26px 26px;
 }
 
-/* ===== HEADER ===== */
-header {
-  background: linear-gradient(180deg, #7a7a7a, #4f4f4f);
-  color: #fff;
-  padding: 24px 16px 28px;
-  border-radius: 0 0 24px 24px;
-  text-align: center;
+.top{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-header img.logo {
-  width: 64px;
-  margin-bottom: 10px;
+.top img{
+  width:52px;
 }
 
-header h1 {
-  margin: 8px 0 6px;
-  font-size: 22px;
-  font-weight: 700;
+header h1{
+  margin:6px 0 2px;
+  font-size:22px;
 }
 
-header p {
-  margin: 0;
-  font-size: 14px;
-  opacity: 0.95;
+header p{
+  margin:0;
+  font-size:13px;
+  opacity:.9;
 }
 
-/* ===== CONTENT ===== */
-.container {
-  padding: 16px;
+/* CONTENT */
+.container{
+  padding:16px;
+  margin-top:-20px;
 }
 
-.card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+.card{
+  background:#fff;
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:16px;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
+  animation:fade .6s ease;
 }
 
-.card h2 {
-  font-size: 16px;
-  margin: 0 0 8px;
-  color: var(--abu-gelap);
+@keyframes fade{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:none}
 }
 
-.card p {
-  font-size: 14px;
-  line-height: 1.6;
-  margin: 0;
-  text-align: justify;
+.card h2{
+  margin:0 0 8px;
+  font-size:16px;
+  color:var(--hijau2);
 }
 
-/* ===== FOTO ===== */
-.photo {
-  margin: 16px 0;
-  border-radius: 16px;
-  overflow: hidden;
+.card p{
+  font-size:14px;
+  line-height:1.6;
+  text-align:justify;
 }
 
-.photo img {
-  width: 100%;
-  display: block;
+/* FOTO */
+.photo{
+  border-radius:18px;
+  overflow:hidden;
+  margin-bottom:16px;
 }
 
-/* ===== MENU ===== */
-.menu {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.photo img{
+  width:100%;
+  display:block;
 }
 
-.menu a {
-  background: linear-gradient(145deg, #6e6e6e, #4c4c4c);
-  color: white;
-  text-decoration: none;
-  padding: 16px 12px;
-  border-radius: 14px;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  transition: transform .2s;
+/* MENU */
+.menu{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
-.menu a:hover {
-  transform: scale(1.04);
+.menu a{
+  background:linear-gradient(160deg,var(--hijau),var(--hijau2));
+  color:#fff;
+  padding:18px 10px;
+  border-radius:16px;
+  text-align:center;
+  font-size:13px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 6px 14px rgba(0,0,0,.15);
+  transition:.2s;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  font-size: 12px;
-  padding: 18px;
-  color: #777;
+.menu a span{
+  display:block;
+  font-size:22px;
+  margin-bottom:4px;
 }
 
-  /* ===== BOTTOM NAVIGATION ===== */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  display: flex;
-  justify-content: space-around;
-  padding: 8px 0 10px;
-  box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
-  border-radius: 16px 16px 0 0;
-  z-index: 999;
+.menu a:hover{
+  transform:scale(1.05);
 }
 
-.bottom-nav a {
-  text-decoration: none;
-  color: #777;
-  font-size: 11px;
-  text-align: center;
-  width: 25%;
-  transition: color .2s;
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  left:0;right:0;bottom:0;
+  background:#fff;
+  display:flex;
+  justify-content:space-around;
+  padding:8px 0 10px;
+  box-shadow:0 -4px 14px rgba(0,0,0,.15);
+  border-radius:18px 18px 0 0;
 }
 
-.bottom-nav a span {
-  display: block;
-  font-size: 20px;
-  margin-bottom: 2px;
+.bottom-nav a{
+  width:25%;
+  text-align:center;
+  text-decoration:none;
+  font-size:11px;
+  color:#777;
 }
 
-.bottom-nav a.active {
-  color: #4f4f4f;
-  font-weight: 700;
+.bottom-nav a span{
+  display:block;
+  font-size:20px;
 }
 
-/* Biar konten ga ketutup bottom nav */
-body {
-  padding-bottom: 70px;
+.bottom-nav a.active{
+  color:var(--hijau2);
+  font-weight:700;
 }
 
+/* FLOAT BTN */
+.fab{
+  position:fixed;
+  right:18px;
+  bottom:90px;
+  background:var(--hijau);
+  color:#fff;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
 </style>
 </head>
 
 <body>
 
 <header>
-  <img src="img/logo-serengan.png" alt="Logo Serengan" class="logo">
-  <h1>MAS JAGATRA</h1>
-  <p>Mitra Andalan Satlinmas<br><em>Jaga lan Tetulung Rakyat</em></p>
+  <div class="top">
+    <img src="img/logo-serengan.png">
+    <div>
+      <h1>MAS JAGATRA</h1>
+      <p>Mitra Andalan Satlinmas<br><em>Jaga lan Tetulung Rakyat</em></p>
+    </div>
+  </div>
 </header>
 
 <div class="container">
 
   <div class="photo">
-    <img src="img/linmas.jpg" alt="Satlinmas Serengan">
+    <img src="img/linmas.jpg">
   </div>
 
   <div class="card">
     <h2>Tentang Mas Jagatra</h2>
     <p>
-      Mas Jagatra merupakan inovasi Kelurahan Serengan yang memperkuat peran
-      Satlinmas sebagai garda terdepan keamanan, ketertiban, dan solidaritas sosial.
-      Satlinmas juga berperan aktif sebagai agen pendamping masyarakat dalam
-      penertiban dokumen kependudukan dan pencatatan sipil.
+      Mas Jagatra adalah inovasi Kelurahan Serengan untuk memperkuat peran Satlinmas
+      sebagai garda terdepan keamanan, ketertiban, solidaritas sosial serta agen
+      pendamping penertiban dokumen kependudukan dan pencatatan sipil.
     </p>
   </div>
 
   <div class="card">
     <h2>Fitur Layanan</h2>
     <div class="menu">
-      <a href="#">👥 Susunan Linmas</a>
-      <a href="#">📸 Aktivitas</a>
-      <a href="#">🕒 Absensi</a>
-      <a href="#">📊 Laporan Kinerja</a>
+      <a href="#"><span>👥</span>Susunan Linmas</a>
+      <a href="#"><span>📸</span>Aktivitas</a>
+      <a href="#"><span>🕒</span>Absensi</a>
+      <a href="#"><span>📊</span>Laporan</a>
     </div>
   </div>
 
 </div>
-<nav class="bottom-nav">
-  <a href="#" class="active">
-    <span>🏠</span>
-    Beranda
-  </a>
-  <a href="#">
-    <span>👥</span>
-    Linmas
-  </a>
-  <a href="#">
-    <span>🕒</span>
-    Absensi
-  </a>
-  <a href="#">
-    <span>📊</span>
-    Laporan
-  </a>
-</nav>
 
-<footer>
-  © 2026 Kelurahan Serengan<br>
-  Satlinmas – Jaga lan Tetulung Rakyat
-</footer>
+<div class="fab">+</div>
+
+<nav class="bottom-nav">
+  <a class="active"><span>🏠</span>Home</a>
+  <a><span>👥</span>Linmas</a>
+  <a><span>🕒</span>Absensi</a>
+  <a><span>📊</span>Laporan</a>
+</nav>
 
 </body>
 </html>

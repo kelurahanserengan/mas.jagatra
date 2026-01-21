@@ -161,26 +161,28 @@ to{opacity:1;transform:none}
   padding:2px 6px;
   border-radius:10px;
 }
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.45);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-
 .modal-content{
   background:white;
   padding:12px;
-  border-radius:18px;
+  border-radius:20px;
   width:96%;
   height:92vh;
   display:flex;
   flex-direction:column;
-  animation:fade .25s;
+  animation:modalUp .35s ease;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+ backdrop-filter:blur(4px);
 }
+ .modal-content span{
+  padding:4px 10px;
+  border-radius:50%;
+  transition:.2s;
+}
+
+.modal-content span:hover{
+  background:#eee;
+}
+
 
 .modal iframe{
   flex:1;
@@ -188,6 +190,19 @@ to{opacity:1;transform:none}
   border:0;
   border-radius:14px;
 }
+
+/* animasi popup */
+@keyframes modalUp{
+  from{
+    opacity:0;
+    transform:translateY(60px) scale(.95);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
 
 </style>
 </head>

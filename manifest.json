@@ -1,6 +1,7 @@
 {
   "name": "MAS JAGATRA Serengan",
   "short_name": "MAS JAGATRA",
+  "description": "Aplikasi resmi Mas Jagatra Serengan - info layanan, kegiatan, dan inovasi kelurahan",
   "start_url": "/mas.jagatra/",
   "display": "standalone",
   "background_color": "#ffffff",

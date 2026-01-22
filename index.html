@@ -204,66 +204,7 @@ to{opacity:1;transform:none}
     transform:none;
   }
 }
-.gallery-header{
-  background:linear-gradient(135deg,#1faa59,#148f4b);
-  color:white;
-  padding:16px;
-  border-radius:18px;
-}
 
-.gallery-tools{
-  margin-top:10px;
-  display:flex;
-  gap:8px;
-}
-
-.gallery-tools input,
-.gallery-tools button{
-  border:0;
-  padding:8px 12px;
-  border-radius:10px;
-}
-
-.gallery-frame{
-  margin-top:12px;
-  background:white;
-  padding:10px;
-  border-radius:18px;
-  box-shadow:0 6px 18px rgba(0,0,0,.2);
-}
-
-.gallery-frame iframe{
-  width:100%;
-  height:70vh;
-  border:0;
-  border-radius:14px;
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.8);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-
-.modal img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:16px;
-}
-
-.modal span{
-  position:absolute;
-  top:20px;
-  right:25px;
-  font-size:32px;
-  color:white;
-  cursor:pointer;
-}
 
 </style>
 </head>
@@ -507,33 +448,15 @@ F. Dampak Terukur <span>›</span>
 </div>
 </section>
 -->
-
- <section id="gallery">
-  <div class="gallery-header">
-    <h3>📸 Galeri Kegiatan Satlinmas</h3>
-    <p>Dokumentasi MAS JAGATRA</p>
-
-    <div class="gallery-tools">
-      <input type="date" id="filterDate">
-      <button onclick="toggleFullscreen()">🔍 Fullscreen</button>
-    </div>
-  </div>
-
-  <div class="gallery-frame" id="galleryFrame">
-    <iframe 
-      id="driveFrame"
-      src="https://drive.google.com/embeddedfolderview?id=1wvTvnZe-I1wpShnazzM4TRxS3Zjg90-Y#grid"
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
-
-<!-- MODAL -->
-<div class="modal" id="imgModal">
-  <span onclick="closeModal()">×</span>
-  <img id="modalImg">
+<!-- GALERI -->
+<section id="gallery">
+<div class="card">
+<h3>📸 Galeri Kegiatan</h3>
 </div>
-
+<div class="card">
+<iframe src="https://drive.google.com/embeddedfolderview?id=1wvTvnZe-I1wpShnazzM4TRxS3Zjg90-Y#grid"></iframe>
+</div>
+</section>
 
 <!-- NAV -->
 <div class="bottom-nav">
